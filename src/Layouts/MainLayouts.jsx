@@ -1,9 +1,14 @@
 import React from "react";
+import Navbar from "../Components/Navbar";
+import { Outlet } from "react-router";
+import Footer from "../Components/Footer";
 
 const MainLayouts = () => {
   return (
     <div>
-      <h2>This is Mani Layouts</h2>
+      <Navbar></Navbar>
+      <Outlet></Outlet>
+      <Footer></Footer>
     </div>
   );
 };
