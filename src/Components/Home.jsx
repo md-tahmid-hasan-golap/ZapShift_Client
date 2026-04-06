@@ -3,6 +3,9 @@ import Banner from "./Banner";
 import Works from "./Works";
 import Services from "./Services";
 import Brands from "./Brands";
+import LiveParcel from "./LiveParcel";
+import Customer from "./Customer";
+import FaqQuestion from "./FaqQuestion";
 
 const Home = () => {
   return (
@@ -11,6 +14,9 @@ const Home = () => {
       <Works></Works>
       <Services></Services>
       <Brands></Brands>
+      <LiveParcel></LiveParcel>
+      <Customer></Customer>
+      <FaqQuestion></FaqQuestion>
     </div>
   );
 };
