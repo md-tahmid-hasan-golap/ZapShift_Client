@@ -6,6 +6,9 @@ import Brands from "./Brands";
 import LiveParcel from "./LiveParcel";
 import Customer from "./Customer";
 import FaqQuestion from "./FaqQuestion";
+import Reviews from "./Reviews";
+
+const reviewsPromise = fetch("/reviews.json").then((res) => res.json());
 
 const Home = () => {
   return (
@@ -16,6 +19,7 @@ const Home = () => {
       <Brands></Brands>
       <LiveParcel></LiveParcel>
       <Customer></Customer>
+      <Reviews reviewsPromise={reviewsPromise}></Reviews>
       <FaqQuestion></FaqQuestion>
     </div>
   );
