@@ -3,6 +3,10 @@ import MainLayouts from "../Layouts/MainLayouts";
 import Home from "../Components/Home";
 import Coverage from "../Components/Coverage";
 import AboutUs from "../Components/AboutUs";
+import AuthLayouts from "../Layouts/AuthLayouts";
+import Login from "../auth/Login";
+import Register from "../auth/Register";
+import Errorpage from "../auth/Errorpage";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +27,24 @@ const router = createBrowserRouter([
         Component: AboutUs,
       },
     ],
+  },
+  {
+    path: "/",
+    Component: AuthLayouts,
+    children: [
+      {
+        path: "/login",
+        Component: Login,
+      },
+      {
+        path: "/register",
+        Component: Register,
+      },
+    ],
+  },
+  {
+    path: "*",
+    Component: Errorpage,
   },
 ]);
 
