@@ -7,6 +7,8 @@ import AuthLayouts from "../Layouts/AuthLayouts";
 import Login from "../auth/Login";
 import Register from "../auth/Register";
 import Errorpage from "../auth/Errorpage";
+import PrivateRouter from "./PrivateRouter";
+import BeARider from "../Components/BeARider";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
       {
         path: "/aboutUs",
         Component: AboutUs,
+      },
+      {
+        path: "/beARider",
+        element: (
+          <PrivateRouter>
+            <BeARider></BeARider>
+          </PrivateRouter>
+        ),
       },
     ],
   },

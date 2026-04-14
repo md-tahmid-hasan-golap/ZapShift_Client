@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import Logo from "./Logo";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { AuthContext } from "../firebase/FirebaseAuthProvider";
 import Swal from "sweetalert2"; // SweetAlert2 ইম্পোর্ট
+import { MdArrowCircleRight } from "react-icons/md";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -89,7 +90,6 @@ const Navbar = () => {
       <div className="navbar-end gap-2">
         {user ? (
           <div className="flex items-center gap-3">
-            {/* ইউজারের ছবি থাকলে তা দেখানোর জন্য (ঐচ্ছিক) */}
             {user?.photoURL && (
               <div className="avatar">
                 <div className="w-10 rounded-full border border-gray-200">
@@ -113,6 +113,10 @@ const Navbar = () => {
             Sign In
           </NavLink>
         )}
+
+        <Link className="btn bg-[#CAEB66]" to="/beARider">
+          Be a rider <MdArrowCircleRight size={20} />
+        </Link>
       </div>
     </div>
   );
