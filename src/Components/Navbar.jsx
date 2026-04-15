@@ -90,17 +90,6 @@ const Navbar = () => {
       <div className="navbar-end gap-2">
         {user ? (
           <div className="flex items-center gap-3">
-            {user?.photoURL && (
-              <div className="avatar">
-                <div className="w-10 rounded-full border border-gray-200">
-                  <img
-                    src={user.photoURL}
-                    alt="User"
-                    title={user?.displayName}
-                  />
-                </div>
-              </div>
-            )}
             <button
               onClick={handelLogout}
               className="btn btn-error btn-sm lg:btn-md text-white font-medium"
