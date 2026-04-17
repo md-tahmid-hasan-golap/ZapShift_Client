@@ -42,13 +42,44 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <NavLink to="/services">Services</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-blue-600 font-medium" : ""
+          }
+          to="/services"
+        >
+          Services
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/aboutUs">About Us</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-blue-600 font-medium" : ""
+          }
+          to="/aboutUs"
+        >
+          About Us
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/coverage">Coverage</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-blue-600 font-medium" : ""
+          }
+          to="/sendParcel"
+        >
+          Send Parcel
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-blue-600 font-medium" : ""
+          }
+          to="/coverage"
+        >
+          Coverage
+        </NavLink>
       </li>
     </>
   );

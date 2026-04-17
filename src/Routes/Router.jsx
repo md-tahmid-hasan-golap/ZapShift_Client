@@ -9,6 +9,7 @@ import Register from "../auth/Register";
 import Errorpage from "../auth/Errorpage";
 import PrivateRouter from "./PrivateRouter";
 import BeARider from "../Components/BeARider";
+import SendParcel from "../Components/SendParcel";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRouter>
             <BeARider></BeARider>
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "/sendParcel",
+        element: (
+          <PrivateRouter>
+            <SendParcel></SendParcel>
           </PrivateRouter>
         ),
       },
