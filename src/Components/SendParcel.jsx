@@ -1,16 +1,13 @@
-import React from "react";
+import axios from "axios";
+import React, { useContext } from "react";
 import { set, useForm, Watch } from "react-hook-form";
 import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
+import { AuthContext } from "../firebase/FirebaseAuthProvider";
 
 const SendParcel = () => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    control,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, watch, control } = useForm();
+  const { user } = useContext(AuthContext);
   const ServiceCenters = useLoaderData();
   // console.log(ServiceCenters);
   const regisonsDuplicate = ServiceCenters.map((c) => c.region);
@@ -56,12 +53,16 @@ const SendParcel = () => {
       cancelButtonColor: "#d33",
       confirmButtonText: "I Agree !",
     }).then((result) => {
-      if (result.isConfirmed)
-        Swal.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
-          icon: "success",
+      if (result.isConfirmed) {
+        axios.post("http://localhost:5000/parcels", data).then((res) => {
+          console.log("saveing parcel", res.data);
         });
+        // Swal.fire({
+        //   title: "Deleted!",
+        //   text: "Your file has been deleted.",
+        //   icon: "success",
+        // });
+      }
     });
   };
   return (
@@ -134,6 +135,7 @@ const SendParcel = () => {
               <input
                 type="text"
                 {...register("senderName")}
+                defaultValue={user?.displayName}
                 className="input w-full"
                 placeholder="Sender Name"
               />
@@ -143,6 +145,7 @@ const SendParcel = () => {
               <input
                 type="email"
                 {...register("senderEmail")}
+                defaultValue={user?.email}
                 className="input w-full"
                 placeholder="Sender Email"
               />

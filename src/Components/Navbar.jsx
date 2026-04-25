@@ -81,6 +81,20 @@ const Navbar = () => {
           Coverage
         </NavLink>
       </li>
+      {user && (
+        <>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "text-blue-600 font-medium" : ""
+              }
+              to="/dashbord/myParcels"
+            >
+              My Parcels
+            </NavLink>
+          </li>
+        </>
+      )}
     </>
   );
 

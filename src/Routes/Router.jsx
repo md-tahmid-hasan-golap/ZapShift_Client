@@ -10,6 +10,8 @@ import Errorpage from "../auth/Errorpage";
 import PrivateRouter from "./PrivateRouter";
 import BeARider from "../Components/BeARider";
 import SendParcel from "../Components/SendParcel";
+import DashbordLayouts from "../Layouts/DashbordLayouts";
+import MyParcels from "../Components/MyParcels";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +61,20 @@ const router = createBrowserRouter([
       {
         path: "/register",
         Component: Register,
+      },
+    ],
+  },
+  {
+    path: "dashbord",
+    element: (
+      <PrivateRouter>
+        <DashbordLayouts></DashbordLayouts>
+      </PrivateRouter>
+    ),
+    children: [
+      {
+        path: "myParcels",
+        Component: MyParcels,
       },
     ],
   },
