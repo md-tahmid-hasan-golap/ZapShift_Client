@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, NavLink, Outlet } from "react-router";
+import { CiDeliveryTruck } from "react-icons/ci";
 
 const DashbordLayouts = () => {
   return (
@@ -78,7 +79,7 @@ const DashbordLayouts = () => {
                 }
                 to="/dashbord/myParcels"
               >
-                My Parcels
+                <CiDeliveryTruck size={25} />
               </NavLink>
             </li>
 
